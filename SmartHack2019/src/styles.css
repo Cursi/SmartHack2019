@@ -1,5 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import '@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
 body, html
 {
     height: 100%;
+}
+
+.formFieldStretched
+{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.textAreaStretched
+{
+    min-height: 200px !important;
+}
+
+.buttonFloatRight
+{
+    float: right;
 }

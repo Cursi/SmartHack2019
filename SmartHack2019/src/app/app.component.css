@@ -10,9 +10,25 @@
 #fancyContextMenu
 {
     position: absolute;
+    padding: 10px;
+    border-radius: 6px;
     top: 50px;
     left: 50px;
     z-index: 1000;
     background-color: red;
     color: white;
+    display: none;
+}
+
+.fancyContextMenuItem
+{
+    cursor: pointer;
+    font-size: 20px;
+    padding: 4px;
+    margin: 4px;
+}
+
+.fancyContextMenuItem .material-icons
+{
+    vertical-align: sub;
 }

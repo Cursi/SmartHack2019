@@ -326,14 +326,35 @@
   </a>
 </div>
 
-<iframe (click)="Meh()" id="customIframe" src="http://172.16.77.100:3000/" frameborder="0" #customIframe></iframe>
+<button (click)="Muhaha()">Muhaha</button>
+
+<!-- <h4>Basic mat-select</h4>
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let version of versions" [value]="version.value">
+      {{versions.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<iframe id="customIframe" src="http://172.16.77.100:3000/" frameborder="0" #customIframe></iframe>
 
 <div id="fancyContextMenu">
-  <span>Edit text</span>
-  <span>Edit image source</span>
-  <span>Edit styles</span>
-  <span>Edit classes</span>
+  <span class="fancyContextMenuItem" (click)="OpenEditTextDialog()">
+      <i class="material-icons">notes</i>
+  </span>
+  <span class="fancyContextMenuItem">
+      <i class="material-icons">class</i>
+  </span>
+  <span class="fancyContextMenuItem">
+      <i class="material-icons">color_lens</i>
+  </span>
+  <span class="fancyContextMenuItem">
+      <i class="material-icons">add_photo_alternate</i>
+  </span>
 </div>
+
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Edit text</h1>
+<div mat-dialog-content>
+  <mat-form-field class="formFieldStretched">
+    <textarea class="textAreaStretched" matInput [(ngModel)]="data.inner"></textarea>
+  </mat-form-field>
+  <!-- <mat-form-field>
+    <input matInput [(ngModel)]="data.inner">
+  </mat-form-field> -->
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="data.inner" cdkFocusInitial>Save</button>
+</div>
