@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { IframeTestComponent } from './iframe-test/iframe-test.component';
 
 const routes: Routes = [
-    { path: '', component: AppComponent },
     { path: 'access', component: AccessComponent },
     { path: 'iframet', component: IframeTestComponent }
 ];

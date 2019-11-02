@@ -14,7 +14,7 @@ export class AppComponent
   selectedElement = null;
   flagConsole = false;
 
-  @ViewChild("customIframe", {static: false}) customIframe  
+  @ViewChild("customIframe", {static: false}) customIframe: ElementRef
   yourIFrameUrl = "https://www.online-image-editor.com/"
   testURL = "http://172.16.77.100:3000/";
 
@@ -34,9 +34,9 @@ export class AppComponent
 
       let contextMenuLeft = String(e.data.clientClickX - contextMenu.offsetWidth / 2) + "px";
       let contextMenuTop = String(e.data.clientClickY + this.customIframe.offsetTop) + "px";
-
-      contextMenu.style.left = contextMenuLeft;
+      console.log(this.customIframe);
       contextMenu.style.top = contextMenuTop;
+      contextMenu.style.left = contextMenuLeft;
 
       console.log(e.data);
     },false);
