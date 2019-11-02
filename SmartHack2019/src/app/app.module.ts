@@ -16,11 +16,23 @@ import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import { AccessComponent } from './access/access.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { ReactiveFormsModule } from '@angular/forms';
+import { IframeTestComponent } from './iframe-test/iframe-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditTextDialogComponent
+    EditTextDialogComponent,
+    AccessComponent,
+    IframeTestComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +47,13 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule, 
+    AngularFireStorageModule     
   ],
   providers: [],
   bootstrap: [AppComponent],

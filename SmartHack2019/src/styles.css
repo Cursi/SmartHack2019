@@ -22,3 +22,42 @@ body, html
 {
     float: right;
 }
+
+.niceBut-blue {
+    display: inline-block;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0.7em 1.05em;
+    background: none;
+    color: #0d70d2;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.25s ease;
+    border: 3px solid #0d70d2;
+}
+  
+.niceBut-blue:hover {
+    color: white;
+}
+  
+.niceBut-blue::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #0d70d2;
+    transform-origin: left;
+    transition: width 0.25s ease;
+    z-index: -1;
+}
+
+.niceBut-blue:hover::after {
+    width: 100%;
+}
+
+.transition-200ms-ease-out {
+    transition: all 0.2s ease-out;
+}
