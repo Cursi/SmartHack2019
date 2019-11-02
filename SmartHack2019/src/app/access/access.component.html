@@ -1,0 +1,26 @@
+<div style="position: relative; z-index: 0">
+    <ul style="list-style: none">
+        <li *ngFor="let item of items | async">
+            {{item|json}}
+        </li>
+    </ul>
+    <form [formGroup]="itemGroup">
+        <div style="display:flex; flex-direction: row">
+            <div style="display: flex; flex-direction: column; margin-right: 20px">
+                <label for="property1">
+                    property 1
+                </label>
+                <input type="text" id="property1" formControlName="property1">
+            </div>
+            <div style="display: flex; flex-direction: column; margin-right: 20px">
+                <label for="property2">
+                    property 2
+                </label>
+                <input type="text" id="property2" formControlName="property2">
+            </div>
+            <button class="niceBut-blue" (click)="addItem()">
+                Add Item
+            </button>
+        </div>
+    </form>
+</div>

@@ -2,9 +2,9 @@ import { Component, Directive, ElementRef, HostListener, ViewChild} from '@angul
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 
 @Directive({ selector: '[trackScroll]' })
