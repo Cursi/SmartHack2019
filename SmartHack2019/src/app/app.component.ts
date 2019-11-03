@@ -6,6 +6,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { AddVersionDialogComponent } from './add-version-dialog/add-version-dialog.component';
 import { FirebaseService } from './firebase.service';
+import { EditClassDialogComponent } from './edit-class-dialog/edit-class-dialog.component';
+import { EditStylesDialogComponent } from './edit-styles-dialog/edit-styles-dialog.component';
+import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.component';
 
 @Component({
     selector: 'app-root',
@@ -66,12 +69,12 @@ export class AppComponent {
         let usersRef = this.db.database.ref('versions');
         var self = this;
         this.firebaseService.PublishVersion(this.atribut);
-        
+
         usersRef.orderByChild('isCurrent').equalTo(true).on("value", function (snapshot) {
             // console.log(snapshot.val());
             snapshot.forEach(data => {
                 console.log(data.key, self.atribut, "testcuc")
-                if(data.key !== String(self.atribut)) {
+                if (data.key !== String(self.atribut)) {
                     self.firebaseService.UnpublishVersion(data.key);
                 }
             });
@@ -150,7 +153,71 @@ export class AppComponent {
             });
 
         dialogRef.afterClosed().subscribe(result => {
-            this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData, 'inner');
+            try {
+                this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData, 'inner');
+            }
+            catch { }
+
+            document.getElementById("fancyContextMenu").style.display = "none";
+            console.log(result);
+        });
+    }
+
+    OpenEditClassDialog(): void {
+        var self = this;
+
+        const dialogRef = this.dialog.open(EditClassDialogComponent,
+            {
+                width: "80%",
+                data: { classes: self.theData.classes }
+            });
+
+        dialogRef.afterClosed().subscribe(result => {
+            try {
+                this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData, 'classes');
+            }
+            catch { }
+
+            document.getElementById("fancyContextMenu").style.display = "none";
+            console.log(result);
+        });
+    }
+
+    OpenEditStylesDialog(): void {
+        var self = this;
+
+        const dialogRef = this.dialog.open(EditStylesDialogComponent,
+            {
+                width: "80%",
+                data: { styles: self.theData.styles }
+            });
+
+        dialogRef.afterClosed().subscribe(result => {
+            try {
+                this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData, 'styles');
+            }
+            catch { }
+
+            document.getElementById("fancyContextMenu").style.display = "none";
+            console.log(result);
+        });
+    }
+
+    OpenEditImageDialog(): void {
+        var self = this;
+
+        const dialogRef = this.dialog.open(EditImageDialogComponent,
+            {
+                width: "80%",
+                data: { src: self.theData.src }
+            });
+
+        dialogRef.afterClosed().subscribe(result => {
+            try {
+                this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData, 'src');
+            }
+            catch { }
+
             document.getElementById("fancyContextMenu").style.display = "none";
             console.log(result);
         });
@@ -160,8 +227,16 @@ export class AppComponent {
         const dialogRef = this.dialog.open(AddVersionDialogComponent, {});
 
         dialogRef.afterClosed().subscribe(result => {
-            // document.getElementById("fancyContextMenu").style.display = "none";
             console.log(result);
         });
+    }
+
+    RemoveKebab(): void {
+        try {
+            this.firebaseService.EditChange(this.currentVersionIndex, null, this.theData, 'remove kebab');
+        }
+        catch { }
+
+        document.getElementById("fancyContextMenu").style.display = "none";
     }
 }
