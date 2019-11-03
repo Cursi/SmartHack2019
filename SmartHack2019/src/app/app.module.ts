@@ -30,6 +30,8 @@ import { AddVersionDialogComponent } from './add-version-dialog/add-version-dial
 import { EditClassDialogComponent } from './edit-class-dialog/edit-class-dialog.component';
 import { EditStylesDialogComponent } from './edit-styles-dialog/edit-styles-dialog.component';
 import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.component';
+import { AddResourceDialogComponent } from './add-resource-dialog/add-resource-dialog.component';
+import {MatRadioModule} from '@angular/material/radio';     
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.
     AddVersionDialogComponent,
     EditClassDialogComponent,
     EditStylesDialogComponent,
-    EditImageDialogComponent
+    EditImageDialogComponent,
+    AddResourceDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule, 
-    AngularFireStorageModule     
+    AngularFireStorageModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -71,6 +75,7 @@ import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.
     EditClassDialogComponent,
     EditStylesDialogComponent,
     EditImageDialogComponent,
+    AddResourceDialogComponent,
     AddVersionDialogComponent
   ]
 })
