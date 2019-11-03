@@ -21,13 +21,12 @@ export class AppComponent
   flagConsole = false;
 
   @ViewChild("customIframe", {static: false}) customIframe;  
-  yourIFrameUrl = "https://www.online-image-editor.com/";
-  testURL = "http://172.16.77.100:3000/";
-
+  
   theData : any = {};
+  atribut = "";
+  currentVersionIndex : number;
   // versions: Observable<any[]>;
 
-  
   constructor(public dialog: MatDialog, public db: AngularFireDatabase, private firebaseService: FirebaseService) 
   {
     // this.firebaseService.versions.subscribe
@@ -63,6 +62,34 @@ export class AppComponent
   //   });
   // }
 
+  VersionSelected(i)
+  {
+    document.getElementById("fancyContextMenu").style.display = "none";
+    this.currentVersionIndex = i;
+    this.testVar = false;
+    setTimeout(() => 
+    {
+      this.testVar = true;
+    }, 50);
+  }
+
+  testVar = true;
+
+  PostEditorSignal()
+  {
+    if(this.currentVersionIndex != null && this.currentVersionIndex != undefined)
+    {
+      console.log(this.currentVersionIndex);
+      this.customIframe.nativeElement.contentWindow.postMessage(
+      {
+        type : "editorMode",
+        versionKey : this.currentVersionIndex
+      }, "*");
+    }
+    // this.customIframe.nativeElement.contentWindow.location.reload(true);
+
+  }
+
   ngAfterViewInit()
   {
     // Create IE + others compatible event handler
@@ -73,21 +100,24 @@ export class AppComponent
     // Listen to message from child window
     eventer(messageEvent, (e) =>
     {
-      var contextMenu = document.getElementById("fancyContextMenu"); 
-      var customIframe = document.getElementById("customIframe");
-
-      let contextMenuLeft = String(e.data.clientClickX - contextMenu.offsetWidth / 2) + "px";
-      let contextMenuTop = String(e.data.clientClickY + customIframe.offsetTop - contextMenu.offsetHeight / 2) + "px";
-
-      if(contextMenuLeft != "NaNpx")
+      if(this.currentVersionIndex != null && this.currentVersionIndex != undefined)
       {
-        contextMenu.style.left = contextMenuLeft;
-        contextMenu.style.top = contextMenuTop;
-        contextMenu.style.display = "block";
-      }
-
-      // console.log(this.theData);
-      this.theData = e.data;
+        var contextMenu = document.getElementById("fancyContextMenu"); 
+        var customIframe = document.getElementById("customIframe");
+  
+        let contextMenuLeft = String(e.data.clientClickX - contextMenu.offsetWidth / 2) + "px";
+        let contextMenuTop = String(e.data.clientClickY + customIframe.offsetTop - contextMenu.offsetHeight / 2) + "px";
+  
+        if(contextMenuLeft != "NaNpx")
+        {
+          contextMenu.style.left = contextMenuLeft;
+          contextMenu.style.top = contextMenuTop;
+          contextMenu.style.display = "block";
+        }
+  
+        this.theData = e.data;
+        console.log(this.theData, "postMessage");   
+      }    
     }, false);
   }
 
@@ -116,6 +146,7 @@ export class AppComponent
 
     dialogRef.afterClosed().subscribe(result => 
     {
+      this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData);
       document.getElementById("fancyContextMenu").style.display = "none";
       console.log(result);
     });
