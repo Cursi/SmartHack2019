@@ -6,6 +6,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { AddVersionDialogComponent } from './add-version-dialog/add-version-dialog.component';
 import { FirebaseService } from './firebase.service';
+import { EditClassDialogComponent } from './edit-class-dialog/edit-class-dialog.component';
+import { EditStylesDialogComponent } from './edit-styles-dialog/edit-styles-dialog.component';
+import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.component';
 
 @Component({
     selector: 'app-root',
@@ -140,13 +143,87 @@ export class AppComponent
 
     const dialogRef = this.dialog.open(EditTextDialogComponent, 
     {
-        width: "80%",
-        data: { inner : self.theData.inner }
+      width: "80%",
+      data: { inner : self.theData.inner }
     });
 
     dialogRef.afterClosed().subscribe(result => 
     {
-      this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData);
+      try
+      {
+        this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData);
+      }
+      catch {}
+      
+      document.getElementById("fancyContextMenu").style.display = "none";
+      console.log(result);
+    });
+  }
+
+  OpenEditClassDialog(): void
+  {
+    var self = this;
+
+    const dialogRef = this.dialog.open(EditClassDialogComponent, 
+    {
+      width: "80%",
+      data: { classes : self.theData.classes }
+    });
+
+    dialogRef.afterClosed().subscribe(result => 
+    {
+      try
+      {
+        this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData);
+      }
+      catch {}
+
+      document.getElementById("fancyContextMenu").style.display = "none";
+      console.log(result);
+    });
+  }
+
+  OpenEditStylesDialog(): void
+  {
+    var self = this;
+
+    const dialogRef = this.dialog.open(EditStylesDialogComponent, 
+    {
+      width: "80%",
+      data: { styles : self.theData.styles }
+    });
+
+    dialogRef.afterClosed().subscribe(result => 
+    {
+      try
+      {
+        this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData);
+      }
+      catch {}
+
+      document.getElementById("fancyContextMenu").style.display = "none";
+      console.log(result);
+    });
+  }
+
+  OpenEditImageDialog(): void
+  {
+    var self = this;
+
+    const dialogRef = this.dialog.open(EditImageDialogComponent, 
+    {
+      width: "80%",
+      data: { src : self.theData.src }
+    });
+
+    dialogRef.afterClosed().subscribe(result => 
+    {
+      try
+      {
+        this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData);
+      }
+      catch {}
+
       document.getElementById("fancyContextMenu").style.display = "none";
       console.log(result);
     });
@@ -158,7 +235,6 @@ export class AppComponent
 
     dialogRef.afterClosed().subscribe(result => 
     {
-      // document.getElementById("fancyContextMenu").style.display = "none";
       console.log(result);
     });
   }

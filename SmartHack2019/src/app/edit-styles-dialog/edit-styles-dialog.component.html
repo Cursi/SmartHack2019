@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Edit styles</h1>
+<div mat-dialog-content>
+  <mat-form-field class="formFieldStretched">
+    <textarea class="textAreaStretched" matInput [(ngModel)]="data.stylesAsString"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="data.stylesAsString" cdkFocusInitial>Save</button>
+</div>

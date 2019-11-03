@@ -27,6 +27,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IframeTestComponent } from './iframe-test/iframe-test.component';
 import { AddVersionDialogComponent } from './add-version-dialog/add-version-dialog.component';
+import { EditClassDialogComponent } from './edit-class-dialog/edit-class-dialog.component';
+import { EditStylesDialogComponent } from './edit-styles-dialog/edit-styles-dialog.component';
+import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { AddVersionDialogComponent } from './add-version-dialog/add-version-dial
     EditTextDialogComponent,
     AccessComponent,
     IframeTestComponent,
-    AddVersionDialogComponent
+    AddVersionDialogComponent,
+    EditClassDialogComponent,
+    EditStylesDialogComponent,
+    EditImageDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +65,12 @@ import { AddVersionDialogComponent } from './add-version-dialog/add-version-dial
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: 
+  entryComponents:
   [
     EditTextDialogComponent,
+    EditClassDialogComponent,
+    EditStylesDialogComponent,
+    EditImageDialogComponent,
     AddVersionDialogComponent
   ]
 })
