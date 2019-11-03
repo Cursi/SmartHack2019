@@ -269,7 +269,6 @@
     width: 1920px;
   }
 
-
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
 
@@ -303,10 +302,11 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-    <span class="fancyContextMenuItem">
-        <i class="material-icons">perm_data_setting</i>
+    <span (click)="RefreshPage()" class="fancyContextMenuItem">
+      <i class="material-icons">perm_data_setting</i>
+      WTFrame
     </span>
-    <span>WTFrame</span>
+    <!-- <span></span> -->
 </div>
 
 <!-- <button (click)="Muhaha()">Muhaha</button> -->
@@ -342,11 +342,10 @@
   <span class="fancyContextMenuItem" (click)="OpenAddResourceDialog()">
       <i class="material-icons">note_add</i>
   </span>
-  <span class="fancyContextMenuItem" (click)="RemoveKebab()">
+  <span class="fancyContextMenuItem" (click)="OpenRemoveResourceDialog()">
       <i class="material-icons">delete</i>
   </span>
 </div>
-
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

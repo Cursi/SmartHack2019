@@ -31,7 +31,8 @@ import { EditClassDialogComponent } from './edit-class-dialog/edit-class-dialog.
 import { EditStylesDialogComponent } from './edit-styles-dialog/edit-styles-dialog.component';
 import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.component';
 import { AddResourceDialogComponent } from './add-resource-dialog/add-resource-dialog.component';
-import {MatRadioModule} from '@angular/material/radio';     
+import {MatRadioModule} from '@angular/material/radio';
+import { RemoveResourceDialogComponent } from './remove-resource-dialog/remove-resource-dialog.component';     
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatRadioModule} from '@angular/material/radio';
     EditClassDialogComponent,
     EditStylesDialogComponent,
     EditImageDialogComponent,
-    AddResourceDialogComponent
+    AddResourceDialogComponent,
+    RemoveResourceDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import {MatRadioModule} from '@angular/material/radio';
     EditStylesDialogComponent,
     EditImageDialogComponent,
     AddResourceDialogComponent,
-    AddVersionDialogComponent
+    AddVersionDialogComponent,
+    RemoveResourceDialogComponent
   ]
 })
 export class AppModule { }
