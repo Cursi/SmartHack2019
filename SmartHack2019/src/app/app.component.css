@@ -15,7 +15,7 @@
     top: 50px;
     left: 50px;
     z-index: 1000;
-    background-color: red;
+    background-color: #673ab7;
     color: white;
     display: none;
 }

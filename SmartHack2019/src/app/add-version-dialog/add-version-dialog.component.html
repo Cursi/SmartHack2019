@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Add version</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="versionName">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button (click)="versionName.length != 0 ? firebaseService.AddVersion(versionName) : ''" mat-button mat-dialog-close="true" cdkFocusInitial>Add</button>
+</div>

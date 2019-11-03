@@ -26,13 +26,15 @@ import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IframeTestComponent } from './iframe-test/iframe-test.component';
+import { AddVersionDialogComponent } from './add-version-dialog/add-version-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditTextDialogComponent,
     AccessComponent,
-    IframeTestComponent
+    IframeTestComponent,
+    AddVersionDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { IframeTestComponent } from './iframe-test/iframe-test.component';
   bootstrap: [AppComponent],
   entryComponents: 
   [
-    EditTextDialogComponent
+    EditTextDialogComponent,
+    AddVersionDialogComponent
   ]
 })
 export class AppModule { }
