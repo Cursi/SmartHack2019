@@ -320,7 +320,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button [disabled]="currentVersionIndex == null || currentVersionIndex == undefined" mat-button class="coloredButton" style="margin-left: 10px;">Publish</button>
+  <button (click)="Publish()" [disabled]="currentVersionIndex == null || currentVersionIndex == undefined" mat-button class="coloredButton" style="margin-left: 10px;">Publish</button>
   <button (click)="OpenAddVersionDialog()" mat-button class="coloredButton" style="margin-left: 10px; margin-top: 8px; float: right;">Add version</button>
 </div>
 
