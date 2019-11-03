@@ -9,6 +9,7 @@ import { FirebaseService } from './firebase.service';
 import { EditClassDialogComponent } from './edit-class-dialog/edit-class-dialog.component';
 import { EditStylesDialogComponent } from './edit-styles-dialog/edit-styles-dialog.component';
 import { EditImageDialogComponent } from './edit-image-dialog/edit-image-dialog.component';
+import { AddResourceDialogComponent } from './add-resource-dialog/add-resource-dialog.component';
 
 @Component({
     selector: 'app-root',
@@ -214,6 +215,28 @@ export class AppComponent
     {
       width: "80%",
       data: { src : self.theData.src }
+    });
+
+    dialogRef.afterClosed().subscribe(result => 
+    {
+      try
+      {
+        this.firebaseService.EditChange(this.currentVersionIndex, result, this.theData);
+      }
+      catch {}
+
+      document.getElementById("fancyContextMenu").style.display = "none";
+      console.log(result);
+    });
+  }
+
+  OpenAddResourceDialog(): void
+  {
+    var self = this;
+
+    const dialogRef = this.dialog.open(AddResourceDialogComponent, 
+    {
+      width: "80%"
     });
 
     dialogRef.afterClosed().subscribe(result => 
