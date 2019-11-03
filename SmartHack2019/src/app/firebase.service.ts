@@ -18,10 +18,7 @@ export class FirebaseService
     this.versions.subscribe((res) => 
     {
       this.versionsLength = res.length;
-      console.log(res);
     });
-
-    console.log(this.versions);
   }
 
   AddVersion(versionName)
@@ -51,9 +48,6 @@ export class FirebaseService
       .on('value', snap => {
         obj = snap.val();
       })
-
-    // console.log(itemsRef, "EditChange", obj);
-    console.log(theData);
 
     let changes = [];
     if(obj.changes === undefined) {
