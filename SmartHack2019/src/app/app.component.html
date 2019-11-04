@@ -324,7 +324,7 @@
   <button (click)="OpenAddVersionDialog()" mat-button class="coloredButton" style="margin-left: 10px; margin-top: 8px; float: right;">Add version</button>
 </div>
 
-<iframe *ngIf="testVar && currentVersionIndex != undefined && currentVersionIndex != null" (load)="PostEditorSignal()" cdkFocusInitial id="customIframe" src="http://172.16.77.100:3000/" frameborder="0" #customIframe></iframe>
+<iframe *ngIf="testVar && currentVersionIndex != undefined && currentVersionIndex != null" (load)="PostEditorSignal()" cdkFocusInitial id="customIframe" src="http://localhost:3000/" frameborder="0" #customIframe></iframe>
 
 <div id="fancyContextMenu">
   <span class="fancyContextMenuItem" (click)="OpenEditTextDialog()">
